@@ -1,4 +1,7 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.mapper;
+
+import org.example.springhybernate164.Entity.StudentEntity;
+import org.example.springhybernate164.dto.StudentDto;
 
 public class StudentMapper {
 

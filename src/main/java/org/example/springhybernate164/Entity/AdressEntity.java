@@ -1,4 +1,4 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

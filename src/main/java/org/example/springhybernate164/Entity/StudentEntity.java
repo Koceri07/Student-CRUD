@@ -1,4 +1,4 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -39,6 +39,12 @@ public class StudentEntity {
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private AdressEntity adress;
+
+    @ManyToOne
+    private TeacherEntity teachers;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<LessonEntity> lessons;
 
     @Override
     public boolean equals(Object o) {

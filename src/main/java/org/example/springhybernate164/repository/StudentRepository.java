@@ -1,5 +1,6 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.repository;
 
+import org.example.springhybernate164.Entity.StudentEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

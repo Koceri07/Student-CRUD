@@ -1,4 +1,4 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

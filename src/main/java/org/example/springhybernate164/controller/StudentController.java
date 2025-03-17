@@ -1,6 +1,8 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springhybernate164.dto.StudentDto;
+import org.example.springhybernate164.servise.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

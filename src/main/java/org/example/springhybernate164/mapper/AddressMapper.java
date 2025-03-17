@@ -1,4 +1,7 @@
-package org.example.springhybernate164;
+package org.example.springhybernate164.mapper;
+
+import org.example.springhybernate164.Entity.AdressEntity;
+import org.example.springhybernate164.dto.AddressDto;
 
 public class AddressMapper {
 
