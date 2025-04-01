@@ -13,7 +13,7 @@ public class AddressService {
     private final AdressRepository adressRepository;
 
     public void createAdress(AddressDto addressDto){
-        AdressEntity entity = AddressMapper.toEntity(addressDto);
+        AdressEntity entity = AddressMapper.INSTANCE.toEntity(addressDto);
         adressRepository.save(entity);
     }
 }
