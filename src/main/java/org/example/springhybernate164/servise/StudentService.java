@@ -21,7 +21,7 @@ public class StudentService {
 
         public void createStudent(StudentDto studentDto){
             log.info("ActionLog.createStudent.start for name {}", studentDto.getFirstName());
-            StudentEntity studentEntity = StudentMapper.toStudentEntity(studentDto);
+            StudentEntity studentEntity = StudentMapper.INSTENCE.toEntity(studentDto);
             addressService.createAdress(studentDto.getAddress());
             studentRepository.save(studentEntity);
             log.info("ActionLog.createStudent.end for name {}", studentDto.getFirstName());
@@ -33,13 +33,13 @@ public class StudentService {
                 .orElseThrow(() -> new NotFoundException("Student not Found"));
 
         log.info("ActionLog.getStudentById.end for id: {}", id);
-        return StudentMapper.toStudentDto(studentEntity);
+        return StudentMapper.INSTENCE.toDto(studentEntity);
     }
 
     public List<StudentDto> getAllStudents(){
             return studentRepository.findAll()
                     .stream()
-                    .map(StudentMapper::toStudentDto)
+                    .map(StudentMapper.INSTENCE::toDto)
                     .toList();
     }
 

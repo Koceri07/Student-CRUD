@@ -29,6 +29,4 @@ public class StudentController {
     public void deleteStudent(@PathVariable Long id){
             studentService.deleteStudentById(id);
     }
-
-
 }

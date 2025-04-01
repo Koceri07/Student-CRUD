@@ -2,26 +2,19 @@ package org.example.springhybernate164.mapper;
 
 import org.example.springhybernate164.Entity.StudentEntity;
 import org.example.springhybernate164.dto.StudentDto;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
-public class StudentMapper {
+@Mapper
+public interface StudentMapper {
 
-    public static StudentEntity toStudentEntity(StudentDto studentDto){
-        var student = new StudentEntity();
-        student.setFirstName(studentDto.getFirstName());
-        student.setLastName(studentDto.getLastName());
-        student.setAge(studentDto.getAge());
-        student.setId(studentDto.getId());
-        student.setAdress(AddressMapper.toEntity(studentDto.getAddress()));
-        return student;
-    }
+    StudentMapper INSTENCE = Mappers.getMapper(StudentMapper.class);
 
-    public static StudentDto toStudentDto(StudentEntity studentEntity){
-        var student = new StudentDto();
-        student.setFirstName(studentEntity.getFirstName());
-        student.setLastName(studentEntity.getLastName());
-        student.setAge(studentEntity.getAge());
-        student.setId(studentEntity.getId());
-        student.setAddress(AddressMapper.toDto(studentEntity.getAdress()));
-        return student;
-    }
+
+    @Mapping(target = "id",ignore = true)
+    StudentDto toDto(StudentEntity studentEntity);
+
+    StudentEntity toEntity(StudentDto studentDto);
 }
+
