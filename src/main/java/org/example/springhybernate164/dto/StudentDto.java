@@ -1,5 +1,6 @@
 package org.example.springhybernate164.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentDto {
+
 
     private Long id;
     @Length(min = 3,max = 20)

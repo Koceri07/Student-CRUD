@@ -1,5 +1,6 @@
 package org.example.springhybernate164.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.example.springhybernate164.dto.StudentDto;
 import org.example.springhybernate164.servise.StudentService;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/students")
 @RequiredArgsConstructor
+@Tag(name = "Student", description = "Student API")
 public class StudentController {
     private final StudentService studentService;
 
@@ -21,10 +23,15 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public List<StudentDto> getAllStudents(@PathVariable Long id){
+    public StudentDto getStudent(@PathVariable Long id){
+        return studentService.getSutudentById(id);
+    }
+
+    @GetMapping()
+    public List<StudentDto> getAllStudents(){
         return studentService.getAllStudents();
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteStudent(@PathVariable Long id){
             studentService.deleteStudentById(id);
