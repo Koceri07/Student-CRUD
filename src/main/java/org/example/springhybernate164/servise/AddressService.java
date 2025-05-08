@@ -16,4 +16,11 @@ public class AddressService {
         AdressEntity entity = AddressMapper.INSTANCE.toEntity(addressDto);
         adressRepository.save(entity);
     }
+
+    public AddressDto getAddressById(Long id){
+        AdressEntity adressEntity = adressRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+        var address = AddressMapper.INSTANCE.toDto(adressEntity);
+        return address;
+    }
 }
